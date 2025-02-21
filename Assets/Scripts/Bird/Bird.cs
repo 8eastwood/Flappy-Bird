@@ -18,6 +18,16 @@ public class Bird : MonoBehaviour
         _handler = GetComponent<BirdCollisionHandler>();
         _birdMover = GetComponent<BirdMover>();
     }
+    
+    private void OnEnable()
+    {
+        _handler.CollisionDetected += ProcessCollision;
+    }
+
+    private void OnDisable()
+    {
+        _handler.CollisionDetected -= ProcessCollision;
+    }
 
     private void ProcessCollision(IInteractable interactable)
     {
@@ -28,13 +38,13 @@ public class Bird : MonoBehaviour
         
         else if (interactable is ScoreZone)
         {
-            // _scoreCounter.Add();
+            _scoreCounter.Add();
         }
     }
 
     public void Reset()
     {
-        // _scoreCounter.Reset();
-        // _birdMover.Reset();
+        _scoreCounter.Reset();
+        _birdMover.Reset();
     }
 }

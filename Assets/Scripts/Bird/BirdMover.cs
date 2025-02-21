@@ -11,7 +11,7 @@ public class BirdMover : MonoBehaviour
     [SerializeField] private float _tapForce;
     [SerializeField] private float _speed;
 
-    private Rigidbody2D _rigidbody;
+    private Rigidbody2D _rigidbody2D;
     private Quaternion _minRotation;
     private Quaternion _maxRotation;
     private Vector3 _startPosition;
@@ -19,7 +19,7 @@ public class BirdMover : MonoBehaviour
     private void Start()
     {
         _startPosition = transform.position;
-        _rigidbody = GetComponent<Rigidbody2D>();
+        _rigidbody2D = GetComponent<Rigidbody2D>();
 
         _maxRotation = Quaternion.Euler(0f, 0f, _maxRotationZ);
         _minRotation = Quaternion.Euler(0f, 0f, _minRotationZ);
@@ -29,10 +29,17 @@ public class BirdMover : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            _rigidbody.velocity = new Vector2(_speed, _tapForce);
+            _rigidbody2D.velocity = new Vector2(_speed, _tapForce);
             transform.rotation = _maxRotation;
         }
 
         transform.rotation = Quaternion.Lerp(transform.rotation, _minRotation, _rotationSpeed * Time.deltaTime);
+    }
+
+    public void Reset()
+    {
+        transform.position = _startPosition;
+        transform.rotation = Quaternion.identity;
+        _rigidbody2D.velocity = Vector2.zero;
     }
 }

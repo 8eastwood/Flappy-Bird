@@ -1,18 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ScoreView : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private ScoreCounter _scoreCounter;
+    [SerializeField] private TMP_Text _score;
+
+    private void OnEnable()
     {
-        
+        _scoreCounter.ScoreChanged += OnScoreChanged;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
+        _scoreCounter.ScoreChanged -= OnScoreChanged;
+    }
+
+    private void OnScoreChanged(int score)
+    {
+        _score.text = score.ToString();
     }
 }
