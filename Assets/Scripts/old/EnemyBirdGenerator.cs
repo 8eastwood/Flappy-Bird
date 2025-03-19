@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class PipeGenerator : MonoBehaviour
+public class EnemyBirdGenerator : MonoBehaviour
 {
     [SerializeField] private float _delay;
     [SerializeField] private float _lowerBound;
@@ -10,10 +10,10 @@ public class PipeGenerator : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(GeneratePipes());
+        StartCoroutine(GenerateEnemyBirds());
     }
 
-    private IEnumerator GeneratePipes()
+    private IEnumerator GenerateEnemyBirds()
     {
         var wait = new WaitForSeconds(_delay);
 
@@ -29,9 +29,9 @@ public class PipeGenerator : MonoBehaviour
         float spawnPositionY = Random.Range(_lowerBound, _upperBound);
         Vector3 spawnPoint = new Vector3(transform.position.x, spawnPositionY, transform.position.z);
         
-        var pipe = _pool.GetObject();
+        var enemyBird = _pool.GetObject();
         
-        pipe.gameObject.SetActive(true);
-        pipe.transform.position = spawnPoint;
+        enemyBird.gameObject.SetActive(true);
+        enemyBird.transform.position = spawnPoint;
     }
 }
