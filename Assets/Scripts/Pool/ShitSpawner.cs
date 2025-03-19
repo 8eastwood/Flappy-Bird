@@ -9,7 +9,7 @@ public class ShitSpawner : PoolHandler<BirdShit>
     [SerializeField] private float _shootDelay = 2;
 
     private BirdShit _bullet;
-    
+
     public BirdShit Bullet => _bullet;
 
     private void OnEnable()
@@ -30,12 +30,12 @@ public class ShitSpawner : PoolHandler<BirdShit>
     public IEnumerator SpawnBulletWithRate()
     {
         WaitForSeconds wait = new WaitForSeconds(_shootDelay);
-    
+        
         while (enabled)
         {
-            yield return wait;
-    
             GetBulletFromPool();
+
+            yield return wait;
         }
     }
 
@@ -43,11 +43,22 @@ public class ShitSpawner : PoolHandler<BirdShit>
     {
         Debug.Log("bullet spawned ");
         BirdShit bullet = _pool.Get();
-        
+
         bullet.transform.parent = _container;
         bullet.transform.position = _bulletPosition.position;
-        
+
         _bullet = bullet;
+        
+        bullet.Move();
+
+        if (Bullet != null)
+        {
+            Debug.Log("bullet spawned ");
+        }
+        else
+        {
+            Debug.Log(Bullet);
+        }
     }
 
     private void ReleaseBullet(BirdShit bullet)

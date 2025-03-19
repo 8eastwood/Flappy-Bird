@@ -32,6 +32,7 @@ public class EnemyBirdSpawner : PoolHandler<EnemyBird>
         while (enabled)
         {
             yield return wait;
+            
             GetEnemyBirdFromPool();
         }
     }
@@ -48,7 +49,7 @@ public class EnemyBirdSpawner : PoolHandler<EnemyBird>
         enemy.transform.position = spawnPoint;
 
         StartCoroutine(_bulletSpawner.SpawnBulletWithRate());
-        enemy.Construct(_bulletSpawner.Bullet);
+        // enemy.Construct(_bulletSpawner.Bullet);
     }
 
     private void ReleaseEnemyBird(EnemyBird enemy)

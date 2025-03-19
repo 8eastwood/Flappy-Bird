@@ -10,13 +10,17 @@ public class BirdShit : MonoBehaviour, IInteractable
     private Rigidbody2D _rigidbody2D;
     private float _directionChanger = -1;
 
-    private void Start()
+    private void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     public void Move()
     {
-        _rigidbody2D.velocity = _rigidbody2D.transform.right * (_force * _directionChanger);
+            _rigidbody2D.velocity = _rigidbody2D.transform.right * (_force * _directionChanger);
+            
+        // if (_rigidbody2D != null)
+        // {
+        // }
     }
 }
