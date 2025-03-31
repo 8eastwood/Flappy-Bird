@@ -5,7 +5,7 @@ using UnityEngine;
 public class BirdShit : MonoBehaviour, IInteractable
 {
     [SerializeField] private float _force;
-    [SerializeField] private float _delay = 2f;
+    // [SerializeField] private float _delay = 2f;
 
     private Rigidbody2D _rigidbody2D;
     private float _directionChanger = -1;

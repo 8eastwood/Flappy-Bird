@@ -27,29 +27,30 @@ public class EnemyBirdSpawner : PoolHandler<EnemyBird>
 
     private IEnumerator SpawnEnemyBirdWithRate()
     {
+        int count = 0;
         WaitForSeconds wait = new WaitForSeconds(_enemySpawnDelay);
 
         while (enabled)
         {
             yield return wait;
-            
+
             GetEnemyBirdFromPool();
+            count++;
+            Debug.Log(count);
         }
     }
 
     private void GetEnemyBirdFromPool()
     {
-        Debug.Log("enemy spawned ");
         float spawnPositionY = Random.Range(_lowerBound, _upperBound);
         Vector3 spawnPoint = new Vector3(transform.position.x, spawnPositionY, transform.position.z);
-
         EnemyBird enemy = _pool.Get();
 
         enemy.transform.parent = _container;
         enemy.transform.position = spawnPoint;
 
-        StartCoroutine(_bulletSpawner.SpawnBulletWithRate());
-        // enemy.Construct(_bulletSpawner.Bullet);
+        // StartCoroutine(_bulletSpawner.SpawnBulletWithRate());
+        enemy.SetBulletSpawner(_bulletSpawner);
     }
 
     private void ReleaseEnemyBird(EnemyBird enemy)

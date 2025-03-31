@@ -3,7 +3,7 @@ using UnityEngine;
 public class Game : MonoBehaviour
 {
     [SerializeField] private Bird _bird;
-    [SerializeField] private EnemyBirdGenerator enemyBirdGenerator;
+    // [SerializeField] private EnemyBirdGenerator enemyBirdGenerator;
     [SerializeField] private StartScreen _startScreen;
     [SerializeField] private EndGameScreen _endGameScreen;
 

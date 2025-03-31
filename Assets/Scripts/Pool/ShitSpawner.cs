@@ -4,13 +4,13 @@ using UnityEngine;
 public class ShitSpawner : PoolHandler<BirdShit>
 {
     [SerializeField] private ObjectRemover _objectRemover;
-    [SerializeField] private Transform _bulletPosition;
     [SerializeField] private Transform _container;
-    [SerializeField] private float _shootDelay = 2;
+    // [SerializeField] private float _shootDelay = 2;
 
+    private Transform _bulletPosition;
     private BirdShit _bullet;
 
-    public BirdShit Bullet => _bullet;
+    // public BirdShit Bullet => _bullet;
 
     private void OnEnable()
     {
@@ -21,44 +21,18 @@ public class ShitSpawner : PoolHandler<BirdShit>
     {
         _objectRemover.BulletCollisionHappened -= ReleaseBullet;
     }
-
-    // public BirdShit TransferBullet()
-    // {
-    //     return _bullet;
-    // }
-
-    public IEnumerator SpawnBulletWithRate()
-    {
-        WaitForSeconds wait = new WaitForSeconds(_shootDelay);
-        
-        while (enabled)
-        {
-            GetBulletFromPool();
-
-            yield return wait;
-        }
-    }
-
-    private void GetBulletFromPool()
+    
+    public void GetBulletFromPool(Vector3 bulletPosition)
     {
         Debug.Log("bullet spawned ");
         BirdShit bullet = _pool.Get();
 
         bullet.transform.parent = _container;
-        bullet.transform.position = _bulletPosition.position;
+        bullet.transform.position = bulletPosition;
 
         _bullet = bullet;
         
         bullet.Move();
-
-        if (Bullet != null)
-        {
-            Debug.Log("bullet spawned ");
-        }
-        else
-        {
-            Debug.Log(Bullet);
-        }
     }
 
     private void ReleaseBullet(BirdShit bullet)

@@ -663,10 +663,8 @@ MonoBehaviour:
   _poolCapacity: 5
   _poolMaxSize: 5
   _objectRemover: {fileID: 1560264777}
-  _bulletPosition: {fileID: 1292167535}
   _container: {fileID: 2376671}
   _shootDelay: 2
-  _enemyBirdSpawner: {fileID: 0}
 --- !u!1 &359724261
 GameObject:
   m_ObjectHideFlags: 0
@@ -826,63 +824,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &482542121
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3154671451428785737, guid: 45db42c32fb40f6408df704a3d94a778, type: 3}
-      propertyPath: m_Name
-      value: EnemyBird
-      objectReference: {fileID: 0}
-    - target: {fileID: 3637059710473598671, guid: 45db42c32fb40f6408df704a3d94a778, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 6.845875
-      objectReference: {fileID: 0}
-    - target: {fileID: 3637059710473598671, guid: 45db42c32fb40f6408df704a3d94a778, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.4506295
-      objectReference: {fileID: 0}
-    - target: {fileID: 3637059710473598671, guid: 45db42c32fb40f6408df704a3d94a778, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3637059710473598671, guid: 45db42c32fb40f6408df704a3d94a778, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3637059710473598671, guid: 45db42c32fb40f6408df704a3d94a778, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3637059710473598671, guid: 45db42c32fb40f6408df704a3d94a778, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3637059710473598671, guid: 45db42c32fb40f6408df704a3d94a778, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3637059710473598671, guid: 45db42c32fb40f6408df704a3d94a778, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3637059710473598671, guid: 45db42c32fb40f6408df704a3d94a778, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 3637059710473598671, guid: 45db42c32fb40f6408df704a3d94a778, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 45db42c32fb40f6408df704a3d94a778, type: 3}
 --- !u!1 &489394449
 GameObject:
   m_ObjectHideFlags: 0
@@ -1635,11 +1576,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &1292167535 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5527492719151215271, guid: 45db42c32fb40f6408df704a3d94a778, type: 3}
-  m_PrefabInstance: {fileID: 482542121}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1359020367
 GameObject:
   m_ObjectHideFlags: 0
@@ -2244,6 +2180,7 @@ MonoBehaviour:
   _poolMaxSize: 5
   _objectRemover: {fileID: 1560264777}
   _container: {fileID: 2376671}
+  _bulletSpawner: {fileID: 345018781}
   _upperBound: 9
   _lowerBound: -1
   _enemySpawnDelay: 3
@@ -2469,4 +2406,3 @@ SceneRoots:
   - {fileID: 33343130}
   - {fileID: 2376671}
   - {fileID: 447365702}
-  - {fileID: 482542121}

@@ -8,8 +8,6 @@ public class ObjectRemover : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("ObjectRemover");
-
         if (other.TryGetComponent(out EnemyBird enemyBird))
         {
             Debug.Log("enemy collided with remover");
@@ -18,6 +16,7 @@ public class ObjectRemover : MonoBehaviour
 
         else if (other.TryGetComponent(out BirdShit bullet))
         {
+            Debug.Log("shit collided with remover");
             BulletCollisionHappened?.Invoke(bullet);
         }
     }
