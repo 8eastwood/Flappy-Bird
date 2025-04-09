@@ -18,6 +18,6 @@ public class EndGameScreen : Window
     public override void Close()
     {
         WindowGroup.alpha = 0f;
-        ActionButton.interactable = true;
+        ActionButton.interactable = false;
     }
 }

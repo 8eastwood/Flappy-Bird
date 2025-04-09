@@ -5,7 +5,6 @@ using UnityEngine;
 public class BirdShit : MonoBehaviour, IInteractable
 {
     [SerializeField] private float _force;
-    // [SerializeField] private float _delay = 2f;
 
     private Rigidbody2D _rigidbody2D;
     private float _directionChanger = -1;
@@ -15,12 +14,8 @@ public class BirdShit : MonoBehaviour, IInteractable
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
-    public void Move()
+    public void Move(int direction)
     {
-            _rigidbody2D.velocity = _rigidbody2D.transform.right * (_force * _directionChanger);
-            
-        // if (_rigidbody2D != null)
-        // {
-        // }
+        _rigidbody2D.velocity = _rigidbody2D.transform.right * (_force * direction);
     }
 }

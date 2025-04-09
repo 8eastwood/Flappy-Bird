@@ -5,12 +5,8 @@ public class ShitSpawner : PoolHandler<BirdShit>
 {
     [SerializeField] private ObjectRemover _objectRemover;
     [SerializeField] private Transform _container;
-    // [SerializeField] private float _shootDelay = 2;
 
     private Transform _bulletPosition;
-    private BirdShit _bullet;
-
-    // public BirdShit Bullet => _bullet;
 
     private void OnEnable()
     {
@@ -21,22 +17,19 @@ public class ShitSpawner : PoolHandler<BirdShit>
     {
         _objectRemover.BulletCollisionHappened -= ReleaseBullet;
     }
-    
-    public void GetBulletFromPool(Vector3 bulletPosition)
-    {
-        Debug.Log("bullet spawned ");
-        BirdShit bullet = _pool.Get();
-
-        bullet.transform.parent = _container;
-        bullet.transform.position = bulletPosition;
-
-        _bullet = bullet;
-        
-        bullet.Move();
-    }
 
     private void ReleaseBullet(BirdShit bullet)
     {
         _pool.Release(bullet);
+    }
+
+    public void GetBulletFromPool(Vector3 bulletPosition, int direction)
+    {
+        BirdShit bullet = _pool.Get();
+
+        bullet.transform.parent = _container;
+        bullet.transform.position = bulletPosition;
+        bullet.gameObject.SetActive(true);
+        bullet.Move(direction);
     }
 }

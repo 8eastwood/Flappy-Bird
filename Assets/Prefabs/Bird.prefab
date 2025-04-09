@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 1759699030907544587}
   - component: {fileID: 8548180727509486927}
   - component: {fileID: 2162571114902632079}
-  - component: {fileID: 3069848680830492070}
   - component: {fileID: 7363616105547440187}
   - component: {fileID: 7500514533427444804}
+  - component: {fileID: 3384966435044187235}
   m_Layer: 0
   m_Name: Bird
   m_TagString: Untagged
@@ -168,18 +168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea754f80ac7ee2d4cab49b8fea77ca37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3069848680830492070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 994161488598913720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df8d528b109dff449ac18cf58db3801a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7363616105547440187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,3 +215,16 @@ CircleCollider2D:
   m_Offset: {x: 0.14, y: -0.16}
   serializedVersion: 2
   m_Radius: 1.5
+--- !u!114 &3384966435044187235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994161488598913720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 839f7ffe8d7cab241a1cc869af24fe43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shitSpawner: {fileID: 0}

@@ -1,4 +1,4 @@
-using System;
+ using System;
 using UnityEngine;
 
 public class StartScreen : Window
@@ -19,7 +19,7 @@ public class StartScreen : Window
 
     public override void Close()
     {
-       WindowGroup.alpha = 0;
+       WindowGroup.alpha = 0f;
        ActionButton.interactable = false;
     }
 }

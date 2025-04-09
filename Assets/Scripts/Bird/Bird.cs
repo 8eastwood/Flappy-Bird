@@ -2,19 +2,16 @@ using System;
 using UnityEngine;
 
 [RequireComponent(typeof(BirdMover))]
-[RequireComponent(typeof(ScoreCounter))]
 [RequireComponent(typeof(BirdCollisionHandler))]
 public class Bird : MonoBehaviour
 {
     private BirdCollisionHandler _handler;
-    private ScoreCounter _scoreCounter;
     private BirdMover _birdMover;
 
     public event Action GameOver;
 
     private void Awake()
     {
-        _scoreCounter = GetComponent<ScoreCounter>();
         _handler = GetComponent<BirdCollisionHandler>();
         _birdMover = GetComponent<BirdMover>();
     }
@@ -37,20 +34,21 @@ public class Bird : MonoBehaviour
             GameOver?.Invoke();
         }
         
-        else if (interactable is ScoreZone)
-        {
-            _scoreCounter.Add();
-        }
-        
         else if (interactable is BirdShit)
         {
             Debug.Log("touched the bullet");
+            GameOver?.Invoke();
+        }
+        
+        else if (interactable is Ground)
+        {
+            Debug.Log("Touched the ground");
+            GameOver?.Invoke();
         }
     }
 
     public void Reset()
     {
-        _scoreCounter.Reset();
         _birdMover.Reset();
     }
 }
