@@ -7,7 +7,6 @@ public class EndGameScreen : Window
 
     protected override void OnButtonClick()
     {
-        Debug.Log("click");
         RestartButtonClicked?.Invoke();
     }
 
