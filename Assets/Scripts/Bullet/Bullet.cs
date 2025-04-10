@@ -1,13 +1,11 @@
-using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class BirdShit : MonoBehaviour, IInteractable
+public class Bullet : MonoBehaviour, IInteractable
 {
     [SerializeField] private float _force;
 
     private Rigidbody2D _rigidbody2D;
-    private float _directionChanger = -1;
 
     private void Awake()
     {

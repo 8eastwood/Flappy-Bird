@@ -30,19 +30,16 @@ public class Bird : MonoBehaviour
     {
         if (interactable is EnemyBird)
         {
-            Debug.Log("touched the enemy");
             GameOver?.Invoke();
         }
         
-        else if (interactable is BirdShit)
+        else if (interactable is Bullet)
         {
-            Debug.Log("touched the bullet");
             GameOver?.Invoke();
         }
         
         else if (interactable is Ground)
         {
-            Debug.Log("Touched the ground");
             GameOver?.Invoke();
         }
     }

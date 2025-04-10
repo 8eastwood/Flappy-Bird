@@ -15,11 +15,13 @@ public class StartScreen : Window
     {
        WindowGroup.alpha = 1f;
        ActionButton.interactable = true;
+       gameObject.SetActive(true);
     }
 
     public override void Close()
     {
        WindowGroup.alpha = 0f;
        ActionButton.interactable = false;
+       gameObject.SetActive(false);
     }
 }

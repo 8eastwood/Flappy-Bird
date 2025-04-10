@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemyBirdSpawner : PoolHandler<EnemyBird>
 {
     [SerializeField] private ObjectRemover _objectRemover;
-    [SerializeField] private ShitSpawner _bulletSpawner;
+    [SerializeField] private BulletSpawner _bulletSpawner;
     [SerializeField] private Transform _container;
     [SerializeField] private float _enemySpawnDelay = 2f;
     [SerializeField] private float _upperBound = 9;
@@ -47,10 +47,13 @@ public class EnemyBirdSpawner : PoolHandler<EnemyBird>
         enemy.transform.position = spawnPoint;
         enemy.SetBulletSpawner(_bulletSpawner);
         enemy.gameObject.SetActive(true);
+        
+        enemy.Destroyed += ReleaseEnemyBird;
     }
     
     private void ReleaseEnemyBird(EnemyBird enemy)
     {
+        enemy.Destroyed -= ReleaseEnemyBird;
         _pool.Release(enemy);
     }
 }

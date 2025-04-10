@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections;
 
@@ -5,15 +6,17 @@ public class EnemyBird : MonoBehaviour, IInteractable
 {
     [SerializeField] EnemyBirdCollisionHandler _enemyCollisionHandler;
 
-    private ShitSpawner _shitSpawner;
-    private Vector3 _direction;
+    private BulletSpawner _bulletSpawner;
+    private Vector3 _bulletPosition;
     private float _shootDelay = 2f;
     private float _offsetX = -2f;
     private int _directionChanger = -1;
+    public event Action<EnemyBird> Destroyed;
 
     private void OnEnable()
     {
         StartCoroutine(SpawnBulletWithRate());
+        
         _enemyCollisionHandler.CollisionDetected += ProcessCollision;
     }
 
@@ -24,13 +27,13 @@ public class EnemyBird : MonoBehaviour, IInteractable
 
     private void Update()
     {
-        _direction = transform.position;
-        _direction.x += _offsetX;
+        _bulletPosition = transform.position;
+        _bulletPosition.x += _offsetX;
     }
 
-    public void SetBulletSpawner(ShitSpawner spawner)
+    public void SetBulletSpawner(BulletSpawner spawner)
     {
-        _shitSpawner = spawner;
+        _bulletSpawner = spawner;
     }
 
     public IEnumerator SpawnBulletWithRate()
@@ -39,7 +42,7 @@ public class EnemyBird : MonoBehaviour, IInteractable
 
         while (enabled)
         {
-            _shitSpawner.GetBulletFromPool(_direction, _directionChanger);
+            _bulletSpawner.GetBulletFromPool(_bulletPosition, _directionChanger);
 
             yield return wait;
         }
@@ -47,9 +50,9 @@ public class EnemyBird : MonoBehaviour, IInteractable
 
     private void ProcessCollision(IInteractable interactable)
     {
-        if (interactable is BirdShit)
+        if (interactable is Bullet)
         {
-            Death();
+            Destroyed?.Invoke(this);
         }
     }
 

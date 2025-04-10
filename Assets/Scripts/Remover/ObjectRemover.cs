@@ -4,19 +4,17 @@ using UnityEngine;
 public class ObjectRemover : MonoBehaviour
 {
     public event Action<EnemyBird> EnemyBirdCollisionHappened;
-    public event Action<BirdShit> BulletCollisionHappened;
+    public event Action<Bullet> BulletCollisionHappened;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.TryGetComponent(out EnemyBird enemyBird))
         {
-            Debug.Log("enemy collided with remover");
             EnemyBirdCollisionHappened?.Invoke(enemyBird);
         }
 
-        else if (other.TryGetComponent(out BirdShit bullet))
+        else if (other.TryGetComponent(out Bullet bullet))
         {
-            Debug.Log("shit collided with remover");
             BulletCollisionHappened?.Invoke(bullet);
         }
     }

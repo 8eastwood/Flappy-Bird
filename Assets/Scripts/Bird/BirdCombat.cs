@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class BirdCombat : MonoBehaviour
 {
-    [SerializeField] ShitSpawner _shitSpawner;
+    [SerializeField] BulletSpawner bulletSpawner;
     
-    private Vector3 _direction ;
+    private Vector3 _bulletPosition ;
     private float _offsetX = 2f;
     private int _directionChanger = 1;
 
@@ -12,8 +12,8 @@ public class BirdCombat : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            _direction = transform.position;
-            _direction.x += _offsetX;
+            _bulletPosition = transform.position;
+            _bulletPosition.x += _offsetX;
             
             Shoot();
         }
@@ -21,6 +21,6 @@ public class BirdCombat : MonoBehaviour
 
     private void Shoot()
     {
-        _shitSpawner.GetBulletFromPool(_direction, _directionChanger);
+        bulletSpawner.GetBulletFromPool(_bulletPosition, _directionChanger);
     }
 }

@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class ShitSpawner : PoolHandler<BirdShit>
+public class BulletSpawner : PoolHandler<Bullet>
 {
     [SerializeField] private ObjectRemover _objectRemover;
     [SerializeField] private Transform _container;
@@ -18,18 +18,18 @@ public class ShitSpawner : PoolHandler<BirdShit>
         _objectRemover.BulletCollisionHappened -= ReleaseBullet;
     }
 
-    private void ReleaseBullet(BirdShit bullet)
-    {
-        _pool.Release(bullet);
-    }
-
     public void GetBulletFromPool(Vector3 bulletPosition, int direction)
     {
-        BirdShit bullet = _pool.Get();
+        Bullet bullet = _pool.Get();
 
         bullet.transform.parent = _container;
         bullet.transform.position = bulletPosition;
         bullet.gameObject.SetActive(true);
         bullet.Move(direction);
+    }
+
+    private void ReleaseBullet(Bullet bullet)
+    {
+        _pool.Release(bullet);
     }
 }

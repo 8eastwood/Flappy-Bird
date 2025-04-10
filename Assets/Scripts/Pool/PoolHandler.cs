@@ -26,7 +26,6 @@ public class PoolHandler<T> : MonoBehaviour where T : MonoBehaviour
 
     private void GetFromPool(T prefab)
     {
-        // prefab.gameObject.SetActive(true);
     }
 
     private void ReleaseInPool(T prefab)

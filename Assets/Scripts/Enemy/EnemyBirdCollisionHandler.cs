@@ -9,7 +9,6 @@ public class EnemyBirdCollisionHandler : MonoBehaviour
     {
         if(other.TryGetComponent(out IInteractable interactable))
         {
-            Debug.Log("enemy Bird Collided");
             CollisionDetected?.Invoke(interactable);
         }
     }
