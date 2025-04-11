@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5146527125116802318}
   - component: {fileID: 2653660255312904207}
   - component: {fileID: 4788733290288927325}
-  - component: {fileID: -2352866970709125819}
   m_Layer: 0
   m_Name: BirdShit
   m_TagString: Untagged
@@ -159,16 +158,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5598569, y: 0.3125}
   m_EdgeRadius: 0
---- !u!114 &-2352866970709125819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2473524399268179425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29df471cd53cea54b990b2a51d3cd76b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _force: 5

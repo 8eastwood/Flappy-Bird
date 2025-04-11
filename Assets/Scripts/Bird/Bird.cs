@@ -28,20 +28,7 @@ public class Bird : MonoBehaviour
 
     private void ProcessCollision(IInteractable interactable)
     {
-        if (interactable is EnemyBird)
-        {
-            GameOver?.Invoke();
-        }
-        
-        else if (interactable is Bullet)
-        {
-            GameOver?.Invoke();
-        }
-        
-        else if (interactable is Ground)
-        {
-            GameOver?.Invoke();
-        }
+        GameOver?.Invoke();
     }
 
     public void Reset()
